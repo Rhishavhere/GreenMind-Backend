@@ -1,0 +1,26 @@
+2024-12-05 04:32:28,493 - __main__ - INFO - Starting data loading process...
+2024-12-05 04:32:28,496 - src.data_loader - ERROR - Error loading data: [Errno 2] No such file or directory: 'household_power_consumption.csv'
+2024-12-05 04:32:28,497 - __main__ - ERROR - An error occurred during analysis: [Errno 2] No such file or directory: 'household_power_consumption.csv'
+Traceback (most recent call last):
+  File "X:\Developing\Python\Power Model\main.py", line 37, in main
+    df = data_loader.load_data()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "X:\Developing\Python\Power Model\src\data_loader.py", line 27, in load_data
+    df = pd.read_csv(self.filepath, parse_dates=[['Date', 'Time']])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "X:\Developing\Python\Power Model\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "X:\Developing\Python\Power Model\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "X:\Developing\Python\Power Model\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "X:\Developing\Python\Power Model\venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ^^^^^^^^^^^
+  File "X:\Developing\Python\Power Model\venv\Lib\site-packages\pandas\io\common.py", line 873, in get_handle
+    handle = open(
+             ^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'household_power_consumption.csv'
