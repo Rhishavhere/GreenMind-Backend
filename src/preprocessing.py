@@ -4,25 +4,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 class DataPreprocessor:
-    """
-    Class responsible for preprocessing power consumption data
-    """
+
     def __init__(self, df):
-        """
-        Initialize DataPreprocessor with DataFrame
-        
-        Args:
-            df (pandas.DataFrame): Input dataframe
-        """
         self.df = df.copy()
     
     def extract_time_features(self):
-        """
-        Extract time-based features from datetime
-        
-        Returns:
-            pandas.DataFrame: DataFrame with additional time features
-        """
+
         df = self.df.copy()
         df['Hour'] = df['Datetime'].dt.hour
         df['Day_of_week'] = df['Datetime'].dt.dayofweek
@@ -31,12 +18,7 @@ class DataPreprocessor:
         return df
     
     def create_features(self):
-        """
-        Create additional features for model training
-        
-        Returns:
-            tuple: Features (X) and target variable (y)
-        """
+
         # Extract time features
         df = self.extract_time_features()
         
@@ -61,16 +43,7 @@ class DataPreprocessor:
         return X, y
     
     def prepare_train_test_split(self, test_size=0.2, random_state=42):
-        """
-        Prepare training and testing datasets
-        
-        Args:
-            test_size (float): Proportion of test dataset
-            random_state (int): Random seed for reproducibility
-        
-        Returns:
-            tuple: X_train, X_test, y_train, y_test, scaler
-        """
+
         X, y = self.create_features()
         
         # Split the data

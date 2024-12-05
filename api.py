@@ -13,13 +13,10 @@ CORS(app)
 def predict():
 
     input_data = request.json
-    
 
     df = pd.DataFrame([input_data])
-    
 
     predictions = model.predict(df)
-    
 
     return jsonify({'predictions': predictions.tolist()})
 
