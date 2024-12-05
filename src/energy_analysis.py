@@ -2,27 +2,15 @@ import numpy as np
 import pandas as pd
 
 class EnergyAnalyzer:
-    """
-    Class for providing energy sustainability insights and recommendations
-    """
+
     def __init__(self, df):
-        """
-        Initialize EnergyAnalyzer
-        
-        Args:
-            df (pandas.DataFrame): Power consumption dataset
-        """
+
         self.df = df
         self.hourly_consumption = None
         self.sub_metering_breakdown = None
     
     def identify_peak_usage_times(self):
-        """
-        Analyze and identify peak energy consumption periods
-        
-        Returns:
-            pandas.Series: Peak consumption hours
-        """
+
         self.hourly_consumption = self.df.groupby(
             self.df['Datetime'].dt.hour
         )['Global_active_power'].mean()
@@ -36,12 +24,7 @@ class EnergyAnalyzer:
         return peak_hours
     
     def analyze_sub_metering_impact(self):
-        """
-        Breakdown of energy consumption by specific appliance categories
-        
-        Returns:
-            pandas.Series: Energy percentage by sub-meter
-        """
+
         sub_metering_columns = ['Sub_metering_1', 'Sub_metering_2', 'Sub_metering_3']
         
         total_energy = self.df[sub_metering_columns].sum()
@@ -54,12 +37,7 @@ class EnergyAnalyzer:
         return self.sub_metering_breakdown
     
     def generate_energy_recommendations(self):
-        """
-        Create targeted energy conservation recommendations
-        
-        Returns:
-            list: Energy saving recommendations
-        """
+
         recommendations = []
         
         # Kitchen Appliances
@@ -103,9 +81,7 @@ class EnergyAnalyzer:
         return recommendations
     
     def generate_sustainability_report(self):
-        """
-        Comprehensive energy sustainability report
-        """
+
         print("\n===== ENERGY SUSTAINABILITY REPORT =====")
         
         # Peak Usage Analysis

@@ -16,3 +16,6 @@
 2024-12-05 04:42:47,823 - __main__ - INFO - Saved feature importance plot to X:\Developing\Python\Power Model\outputs\feature_importance.png
 2024-12-05 04:42:48,043 - __main__ - INFO - Saved hourly consumption plot to X:\Developing\Python\Power Model\outputs\hourly_consumption.png
 2024-12-05 04:42:48,043 - __main__ - INFO - Analysis complete. Check the outputs directory for results.
+2024-12-05 05:41:20,141 - __main__ - INFO - Starting analysis for project: Household Power Consumption Analysis
+2024-12-05 05:41:20,141 - __main__ - INFO - Using dataset: X:\Developing\WEB DEV\GreenMind\Backend\data\household_power_consumption.csv
+2024-12-05 05:41:20,141 - __main__ - INFO - Starting data loading process...

@@ -1,6 +1,4 @@
-"""
-Power Consumption Analysis Project Initialization
-"""
+
 import logging
 import os
 import sys
@@ -11,15 +9,9 @@ src_path = os.path.join(project_root, 'src')
 sys.path.insert(0, project_root)
 sys.path.insert(0, src_path)
 
-# Configure project-wide logging
+
 def configure_logging(log_level=logging.INFO, log_file='power_consumption.log'):
-    """
-    Configure logging for the entire project
-    
-    Args:
-        log_level (int): Logging level (default: logging.INFO)
-        log_file (str): Path to the log file
-    """
+
     # Ensure log directory exists
     log_dir = os.path.join(project_root, 'logs')
     os.makedirs(log_dir, exist_ok=True)
