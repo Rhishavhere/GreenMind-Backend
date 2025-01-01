@@ -4,7 +4,7 @@
 
 This project aims to develop a machine learning model to accurately predict household power consumption and identify peak usage times. By leveraging historical data and advanced algorithms, we can enable energy consumers to make informed decisions, optimize energy usage, and contribute to a more sustainable future.
 
-<img src="../Backend/notebooks/Workflow.jpg" alt="Workflow">
+<img src="../notebooks/Workflow.jpg" alt="Workflow">
 
 
 
