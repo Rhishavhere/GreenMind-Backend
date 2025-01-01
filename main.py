@@ -53,6 +53,11 @@ def main():
         logger.info("Performing energy consumption analysis...")
         energy_analyzer = EnergyAnalyzer(df)
         energy_analyzer.generate_sustainability_report()
+        
+        # Save hourly consumption data to CSV
+        hourly_consumption_csv_path = os.path.join(PROJECT_CONFIG['output_dir'], 'hourly_consumption.csv')
+        energy_analyzer.save_hourly_consumption(hourly_consumption_csv_path)
+        logger.info(f"Saved hourly consumption data to {hourly_consumption_csv_path}")
 
         # 7. Visualizations
         logger.info("Creating visualizations...")

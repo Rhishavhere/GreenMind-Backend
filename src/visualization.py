@@ -27,12 +27,13 @@ class EnergyVisualizer:
     
     @staticmethod
     def plot_hourly_consumption(hourly_consumption):
-
-        plt.figure(figsize=(12, 5))
+        plt.figure(figsize=(12, 6))
+        hourly_consumption.index = [f"{h:02d}:{m:02d}" for h, m in hourly_consumption.index]
         hourly_consumption.plot(kind='line', marker='o')
-        plt.title('Average Energy Consumption by Hour')
-        plt.xlabel('Hour of the Day')
+        plt.title('Average Energy Consumption by Minute')
+        plt.xlabel('Time of the Day (Hour:Minute)')
         plt.ylabel('Average Global Active Power (kW)')
-        plt.xticks(range(24))
+        plt.xticks(rotation=45, ha='right')
         plt.grid(True)
+        plt.tight_layout()
         plt.show()

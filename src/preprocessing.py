@@ -12,6 +12,7 @@ class DataPreprocessor:
 
         df = self.df.copy()
         df['Hour'] = df['Datetime'].dt.hour
+        df['Minute'] = df['Datetime'].dt.minute
         df['Day_of_week'] = df['Datetime'].dt.dayofweek
         df['Month'] = df['Datetime'].dt.month
         

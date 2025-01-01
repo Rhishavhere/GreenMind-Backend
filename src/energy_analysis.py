@@ -12,16 +12,16 @@ class EnergyAnalyzer:
     def identify_peak_usage_times(self):
 
         self.hourly_consumption = self.df.groupby(
-            self.df['Datetime'].dt.hour
+            [self.df['Datetime'].dt.hour, self.df['Datetime'].dt.minute]
         )['Global_active_power'].mean()
         
-        peak_hours = self.hourly_consumption.nlargest(3)
+        peak_times = self.hourly_consumption.nlargest(3)
         
-        print("Peak Energy Consumption Hours:")
-        for hour, consumption in peak_hours.items():
-            print(f"Hour {hour:02d}:00 - Average Consumption: {consumption:.2f} kW")
+        print("Peak Energy Consumption Times:")
+        for (hour, minute), consumption in peak_times.items():
+            print(f"Time {hour:02d}:{minute:02d} - Average Consumption: {consumption:.2f} kW")
         
-        return peak_hours
+        return peak_times
     
     def analyze_sub_metering_impact(self):
 
@@ -103,3 +103,10 @@ class EnergyAnalyzer:
         print("Estimated Annual Cost Reduction: ${:.2f}".format(
             estimated_savings * 365 * 0.12  # Assuming $0.12 per kWh
         ))
+    
+    def save_hourly_consumption(self, filepath):
+        if self.hourly_consumption is not None:
+            self.hourly_consumption.to_csv(filepath, header=True)
+            print(f"Hourly consumption data saved to {filepath}")
+        else:
+            print("Hourly consumption data not yet generated.")
