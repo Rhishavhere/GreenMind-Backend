@@ -1,6 +1,6 @@
-# Al-powered solution to enhance energy efficiency and sustainability in residential and commercial buildings
+# Introducing **GREENMIND-AI**
 
-**Introduction**
+***A Smart AI Solution For Our Greener Future***
 
 This project aims to develop a machine learning model to accurately predict household power consumption and identify peak usage times. By leveraging historical data and advanced algorithms, we can enable energy consumers to make informed decisions, optimize energy usage, and contribute to a more sustainable future.
 
