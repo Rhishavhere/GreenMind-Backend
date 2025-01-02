@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Condition Check</title>
+    <style>
+        body{
+          padding:0;
+          margin:0;
+        }
+        #screen {
+            width:100vw;
+            height:100vh;
+            background-color: rgb(255, 137, 137); /* Set a default background color */
+        }
+    </style>
+</head>
+<body>
+    <div id="screen"></div>
+
+    <script>
+        function checkCondition() {
+            fetch('http://127.0.0.1:5000/')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Data received:", data); // Log the data
+                    const screen = document.getElementById('screen');
+                    if (data && data.color) {
+                        screen.style.backgroundColor = data.color;
+                    } else {
+                        console.error("Invalid data format received:", data);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+                console.log("Updated")
+        }
+
+        // Initial check and periodic updates
+        checkCondition();
+        setInterval(checkCondition, 200); // Check every 2 seconds
+    </script>
+</body>
+</html>
